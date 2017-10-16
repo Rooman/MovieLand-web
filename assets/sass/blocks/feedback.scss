@@ -1,0 +1,23 @@
+.feedback {
+  &__title {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  &__item > p {
+    color: #444444;
+    font-size: 15px;
+  }
+
+  &__author-name {
+    color: #444444;
+    font-weight: bold;
+    font-size: 18px;
+    font-style: normal;
+  }
+
+  &__author-nickname {
+    color: #444444;
+    font-size: 18px;
+  }
+}

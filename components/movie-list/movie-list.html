@@ -1,0 +1,18 @@
+<div class="genre-filter">
+  <ul class="nav nav-pills">
+    <li class="nav-item" ng-repeat="genre in ctrl.genres">
+      <a class="nav-link genre-pill" href="#">{{genre.name}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="album text-muted">
+  <div class="row">
+    <div class="card" ng-repeat="movie in ctrl.movies">
+      <img ng-src="{{movie.picturePath}}" class="rounded mx-auto d-block" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{movie.nameNative}} ({{movie.releasedDate}})</h4>
+      </div>
+    </div>
+  </div>
+</div>

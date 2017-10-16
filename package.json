@@ -1,0 +1,19 @@
+{
+  "name": "movieland-ui",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "6.5.3",
+    "browser-sync": "2.18.2",
+    "gulp": "3.9.1",
+    "gulp-plumber": "1.1.0",
+    "gulp-postcss": "6.2.0",
+    "gulp-sass": "2.3.2"
+  },
+  "scripts": {
+    "test": "editorconfig-cli",
+    "build": "gulp style",
+    "start": "gulp serve"
+  }
+}
