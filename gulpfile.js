@@ -29,7 +29,8 @@ gulp.task("serve", ["style"], function() {
     ui: false
   });
 
-  gulp.watch("assets/sass/**/*.{scss,sass}", ["style"]);
+  gulp.watch("components/**/*.{scss,sass}", ["style"]);
+  gulp.watch("components/**/*.js").on("change", server.reload);
   gulp.watch("*.html").on("change", server.reload);
   gulp.watch("assets/js/*.js").on("change", server.reload);
 });

@@ -1,0 +1,16 @@
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+  background-color: #e6e7ed;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel__title-text {
+  font-size: 1.25rem;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  padding-top: 50px;
+  height: 25rem;
+}

@@ -1,0 +1,29 @@
+.genre-pill {
+  font-size: 14px;
+  border-radius: 4px;
+  color: #333438;
+  background-color: #e6e7ed;
+  border-color: #e6e7ed;
+  margin: 5px;
+}
+
+.album {
+  min-height: 50rem;
+  padding-bottom: 3rem;
+  box-shadow: 0 1px 3px 0 rgba(40, 35, 80, .28);
+}
+
+.card {
+  float: left;
+  width: 25%;
+  padding: .75rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+}
+
+.card-title {
+  text-align: center;
+}
