@@ -1,0 +1,52 @@
+.movie {
+  padding-top: 20px;
+}
+
+.title-wrapper {
+  margin-bottom: 20px;
+}
+
+.movie .title-text {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+.movie dt {
+  font-size: 15px;
+}
+
+.movie dd {
+  font-size: 13px;
+}
+
+.controls {
+  text-align: right;
+
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+.review-header {
+  margin-top: 30px;
+}
+
+.review {
+  margin-bottom: 10px;
+
+  //.card-body {
+  //  padding-bottom: 10px;
+  //}
+
+  blockquote {
+    margin: 0;
+  }
+
+  .blockquote-footer-wrapper {
+    margin-top: 15px;
+  }
+}
+
+.review p {
+  font-size: 13px;
+}

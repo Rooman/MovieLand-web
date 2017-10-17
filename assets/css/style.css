@@ -27,24 +27,26 @@ body {
   padding: 0 15px;
   box-shadow: 0 1px 3px 0 rgba(40, 35, 80, 0.28); }
 
-.card {
+.movie-album .card {
   float: left;
   width: 25%;
   padding: .75rem;
   border: 0; }
-
-.card > img {
-  margin-bottom: .5rem; }
-
-.card-title {
-  text-align: center;
-  font-size: 1rem;
-  margin-bottom: 0; }
-
-.card-body {
-  text-align: center;
-  padding-top: 7px;
-  padding-bottom: 5px; }
+  .movie-album .card a {
+    color: #868e96; }
+  .movie-album .card a:hover {
+    text-decoration: none;
+    color: rgba(73, 59, 65, 0.86); }
+  .movie-album .card img {
+    margin-bottom: .5rem; }
+  .movie-album .card .card-title {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0; }
+  .movie-album .card .card-body {
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 5px; }
 
 .movie-carousel {
   margin-top: 15px; }
@@ -62,7 +64,7 @@ body {
 /* Declare heights because of positioning of img element */
 #randomMovieCarousel .carousel-item {
   padding-top: 22px;
-  height: 21rem; }
+  height: 22rem; }
 
 #randomMovieCarousel dt {
   font-size: 15px; }
@@ -75,3 +77,37 @@ body {
 
 #randomMovieCarousel .carousel-indicators .active {
   background-color: rgba(53, 59, 65, 0.56); }
+
+.movie {
+  padding-top: 20px; }
+
+.title-wrapper {
+  margin-bottom: 20px; }
+
+.movie .title-text {
+  font-size: 1.25rem;
+  margin-bottom: 15px; }
+
+.movie dt {
+  font-size: 15px; }
+
+.movie dd {
+  font-size: 13px; }
+
+.controls {
+  text-align: right; }
+  .controls button:hover {
+    cursor: pointer; }
+
+.review-header {
+  margin-top: 30px; }
+
+.review {
+  margin-bottom: 10px; }
+  .review blockquote {
+    margin: 0; }
+  .review .blockquote-footer-wrapper {
+    margin-top: 15px; }
+
+.review p {
+  font-size: 13px; }

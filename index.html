@@ -53,11 +53,9 @@
   <!-- CONTAINER -->
   <div class="container">
 
-    <!-- SITE HEAD CAROUSEL -->
-    <movie-carousel></movie-carousel>
+   <!-- view routing -->
+    <ui-view></ui-view>
 
-    <!-- HOME PAGE CARDS -->
-    <movie-list></movie-list>
   </div>
 </main>
 
@@ -70,11 +68,14 @@
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- Angular -->
-<script src="assets/vendor/angular/angular.min.js"></script>
+<!--<script src="assets/vendor/angular/angular.min.js"></script>-->
 <!--<script src="assets/vendor/angular-ui-router/release/angular-ui-router.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 
-<!---->
 <script src="app.module.js"></script>
+<script src="app.route.js"></script>
+
 <script src="components/common/common.module.js"></script>
 <script src="components/common/common.service.js"></script>
 
@@ -86,6 +87,10 @@
 <script src="components/movie-carousel/movie-carousel.module.js"></script>
 <script src="components/movie-carousel/movie-carousel.component.js"></script>
 <script src="components/movie-carousel/movie-carousel.controller.js"></script>
+
+<script src="components/movie/movie.module.js"></script>
+<script src="components/movie/movie.controller.js"></script>
+
 
 </body>
 </html>

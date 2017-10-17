@@ -14,11 +14,14 @@
   <div class="movie-album text-muted">
     <div class="row">
       <div class="card" ng-repeat="movie in ctrl.movies">
-        <img ng-src="{{movie.picturePath}}" class="rounded mx-auto d-block" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">{{movie.nameNative}} ({{movie.yearOfRelease}})</h4>
-        </div>
+        <a ui-sref="movie({id: movie.id})">
+          <img ng-src="{{movie.picturePath}}" class="rounded mx-auto d-block"  alt="{{movieCtrl.movie.nameRussian}}" width="140"
+               height="209">
+          <div class="card-body">
+            <h4 class="card-title">{{movie.nameNative}} ({{movie.yearOfRelease}})</h4>
+          </div>
       </div>
+      </a>
     </div>
   </div>
 
