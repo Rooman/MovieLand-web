@@ -7,7 +7,6 @@
 
   MovieCarouselController.$inject = ['CommonService'];
   function MovieCarouselController(CommonService) {
-    console.log("in carousel");
     var ctrl = this;
 
     CommonService.getRandomMovies().then(function (response) {
@@ -17,6 +16,14 @@
 
     function errorCallback(response) {
       console.log("error response", response);
+    }
+
+    ctrl.minDescription = function (text) {
+      var length = text.trim().length;
+      if (length > 350) {
+        return text.substr(0, 350) + '...';
+      }
+      return text;
     }
   }
 

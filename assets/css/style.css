@@ -2,7 +2,14 @@ body {
   padding-top: 4rem;
   background-color: #f7f8fa; }
 
-.genre-pill {
+.movie-list {
+  margin-top: 10px; }
+
+.genre-filter {
+  margin-top: 27px;
+  margin-bottom: 40px; }
+
+.genre-filter-link {
   font-size: 14px;
   border-radius: 4px;
   color: #333438;
@@ -10,9 +17,14 @@ body {
   border-color: #e6e7ed;
   margin: 5px; }
 
-.album {
+.genre-filter-link:hover {
+  cursor: pointer;
+  background-color: rgba(53, 59, 65, 0.56);
+  color: #fff !important; }
+
+.movie-album {
   min-height: 50rem;
-  padding-bottom: 3rem;
+  padding: 0 15px;
   box-shadow: 0 1px 3px 0 rgba(40, 35, 80, 0.28); }
 
 .card {
@@ -22,21 +34,44 @@ body {
   border: 0; }
 
 .card > img {
-  margin-bottom: .75rem; }
+  margin-bottom: .5rem; }
 
 .card-title {
-  text-align: center; }
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0; }
+
+.card-body {
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 5px; }
+
+.movie-carousel {
+  margin-top: 15px; }
 
 /* Carousel base class */
-.carousel {
+#randomMovieCarousel .carousel {
   margin-bottom: 4rem;
   background-color: #e6e7ed; }
 
 /* Since positioning the image, we need to help out the caption */
-.carousel__title-text {
-  font-size: 1.25rem; }
+#randomMovieCarousel .carousel__title-text {
+  font-size: 1.25rem;
+  margin-bottom: 15px; }
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
-  padding-top: 50px;
-  height: 25rem; }
+#randomMovieCarousel .carousel-item {
+  padding-top: 22px;
+  height: 21rem; }
+
+#randomMovieCarousel dt {
+  font-size: 15px; }
+
+#randomMovieCarousel dd {
+  font-size: 13px; }
+
+#randomMovieCarousel .carousel-indicators li {
+  background-color: #e6e7ed; }
+
+#randomMovieCarousel .carousel-indicators .active {
+  background-color: rgba(53, 59, 65, 0.56); }

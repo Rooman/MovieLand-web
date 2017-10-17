@@ -1,55 +1,52 @@
-<div id="randomMovieCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#randomMovieCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#randomMovieCarousel" data-slide-to="1"></li>
-    <li data-target="#randomMovieCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item" ng-class='{active:$first}' ng-repeat="movie in ctrl.randomMovies">
+<section class="movie-carousel">
+  <h2 class="text-center">Trending</h2>
+  <div id="randomMovieCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#randomMovieCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#randomMovieCarousel" data-slide-to="1"></li>
+      <li data-target="#randomMovieCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item" ng-class='{active:$first}' ng-repeat="movie in ctrl.randomMovies">
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-2">
-            <img ng-src="{{movie.picturePath}}" alt="">
-          </div>
-          <div class="col-md-8">
-            <h3 class="carousel__title-text">
-              {{movie.nameRussian}}
-              <small class="text-muted">{{movie.nameNative}}</small>
-            </h3>
-            <dl class="row">
-              <dt class="col-sm-3">Release date:</dt>
-              <dd class="col-sm-9">{{movie.releasedDate}}</dd>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-2">
+              <img ng-src="{{movie.picturePath}}" alt="">
+            </div>
+            <div class="col-md-8">
+              <h3 class="carousel__title-text">
+                {{movie.nameRussian}}
+                <small class="text-muted">{{movie.nameNative}}</small>
+              </h3>
+              <dl class="row">
+                <dt class="col-sm-3">Release date:</dt>
+                <dd class="col-sm-9">{{movie.yearOfRelease}}</dd>
 
-              <dt class="col-sm-3">Genres:</dt>
-              <dd class="col-sm-9">
-                <span ng-repeat="genre in movie.genres">{{genre.name}} </span>
-              </dd>
+                <dt class="col-sm-3">Genres:</dt>
+                <dd class="col-sm-9">
+                  <span ng-repeat="genre in movie.genres">{{genre.name}} </span>
+                </dd>
 
-              <dt class="col-sm-3">Countries:</dt>
-              <dd class="col-sm-9">
-                <span ng-repeat="country in movie.countries">{{country.name}} </span>
-              </dd>
+                <dt class="col-sm-3">Countries:</dt>
+                <dd class="col-sm-9">
+                  <span ng-repeat="country in movie.countries">{{country.name}} </span>
+                </dd>
 
-              <dt class="col-sm-3">Price:</dt>
-              <dd class="col-sm-9">
-                {{movie.price}}
-              </dd>
+                <dt class="col-sm-3">Price:</dt>
+                <dd class="col-sm-9">
+                  {{movie.price}}
+                </dd>
 
-              <dt class="col-sm-3">Description:</dt>
-              <dd class="col-sm-9">{{movie.plot}}</dd>
+                <dt class="col-sm-3">Description:</dt>
+                <dd class="col-sm-9">{{ctrl.minDescription( movie.description )}}</dd>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
+    <a class="carousel-control-prev" href="#randomMovieCarousel" role="button" data-slide="prev"> </a>
+    <a class="carousel-control-next" href="#randomMovieCarousel" role="button" data-slide="next"> </a>
   </div>
-  <a class="carousel-control-prev" href="#randomMovieCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#randomMovieCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+</section>

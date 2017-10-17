@@ -1,16 +1,41 @@
+.movie-carousel {
+  margin-top: 15px;
+}
+
 /* Carousel base class */
-.carousel {
+#randomMovieCarousel .carousel {
   margin-bottom: 4rem;
   background-color: #e6e7ed;
 }
 
 /* Since positioning the image, we need to help out the caption */
-.carousel__title-text {
+#randomMovieCarousel .carousel__title-text {
   font-size: 1.25rem;
+  margin-bottom: 15px;
 }
 
 /* Declare heights because of positioning of img element */
-.carousel-item {
-  padding-top: 50px;
-  height: 25rem;
+#randomMovieCarousel .carousel-item {
+  padding-top: 22px;
+  height: 21rem;
 }
+
+#randomMovieCarousel dt {
+  font-size: 15px;
+}
+
+#randomMovieCarousel dd {
+  font-size: 13px;
+}
+
+#randomMovieCarousel .carousel-indicators {
+  li {
+    background-color: #e6e7ed;
+  }
+
+
+  .active {
+    background-color: rgba(53, 59, 65, 0.56);
+  }
+}
+

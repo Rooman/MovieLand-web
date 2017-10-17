@@ -24,6 +24,13 @@
       });
     };
 
+    service.getMoviesByGenreId = function (genreId) {
+      return $http({
+        method: "GET",
+        url: ("http://localhost:8080/v1/movie/genre/" + genreId)
+      });
+    };
+
 
     // service.getMoviesByGenre = function (genreId) {
     //   return $http({

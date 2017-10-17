@@ -1,4 +1,13 @@
-.genre-pill {
+.movie-list {
+  margin-top: 10px;
+}
+
+.genre-filter {
+  margin-top: 27px;
+  margin-bottom: 40px;
+}
+
+.genre-filter-link {
   font-size: 14px;
   border-radius: 4px;
   color: #333438;
@@ -7,9 +16,15 @@
   margin: 5px;
 }
 
-.album {
+.genre-filter-link:hover {
+  cursor: pointer;
+  background-color: rgba(53, 59, 65, 0.56);
+  color: #fff !important;
+}
+
+.movie-album {
   min-height: 50rem;
-  padding-bottom: 3rem;
+  padding: 0 15px;
   box-shadow: 0 1px 3px 0 rgba(40, 35, 80, .28);
 }
 
@@ -21,9 +36,17 @@
 }
 
 .card > img {
-  margin-bottom: .75rem;
+  margin-bottom: .5rem;
 }
 
 .card-title {
   text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.card-body {
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 5px;
 }
