@@ -8,6 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -40,10 +41,22 @@
       </ul>
 
       <!-- Search -->
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-lg-0 ">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+
+      <!-- Auth -->
+      <ul class="navbar-nav login-nav">
+        <li class="nav-item" ng-hide="isLogged">
+          <a ui-sref="login" class="btn btn-outline-warning">Login</a>
+        </li>
+        <li class="nav-item" ng-show="isLogged">
+          <a href="" class="btn btn-outline-info">Logout</a>
+        </li>
+      </ul>
+
+
     </div>
   </div>
 </nav>
@@ -53,7 +66,7 @@
   <!-- CONTAINER -->
   <div class="container">
 
-   <!-- view routing -->
+    <!-- view routing -->
     <ui-view></ui-view>
 
   </div>
@@ -68,16 +81,15 @@
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- Angular -->
-<!--<script src="assets/vendor/angular/angular.min.js"></script>-->
-<!--<script src="assets/vendor/angular-ui-router/release/angular-ui-router.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script src="assets/vendor/angular/angular.min.js"></script>
+<script src="assets/vendor/angular-ui-router/release/angular-ui-router.js"></script>
 
 <script src="app.module.js"></script>
 <script src="app.route.js"></script>
 
 <script src="components/common/common.module.js"></script>
 <script src="components/common/common.service.js"></script>
+<script src="components/common/login.service.js"></script>
 
 <!--Custom modules and components-->
 <script src="components/movie-list/movie-list.module.js"></script>
@@ -88,8 +100,14 @@
 <script src="components/movie-carousel/movie-carousel.component.js"></script>
 <script src="components/movie-carousel/movie-carousel.controller.js"></script>
 
+<!-- Movie -->
 <script src="components/movie/movie.module.js"></script>
 <script src="components/movie/movie.controller.js"></script>
+
+<!-- Login -->
+<script src="components/login/login.module.js"></script>
+<script src="components/login/login.component.js"></script>
+<script src="components/login/login.controller.js"></script>
 
 
 </body>

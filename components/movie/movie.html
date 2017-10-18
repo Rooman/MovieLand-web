@@ -1,50 +1,146 @@
-<div class="container movie">
-  <div class="title-wrapper">
+<div class="container">
+  <div class="movie" ng-hide="movieCtrl.editMode">
+    <div class="title-wrapper">
+      <h3 class="title-text text-center">
+        {{movieCtrl.movie.nameRussian}}
+        <small class="text-muted">{{movieCtrl.movie.nameNative}}</small>
+      </h3>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <img class="rounded mx-auto d-block" ng-src="{{movieCtrl.movie.picturePath}}"
+             alt="{{movieCtrl.movie.nameRussian}}" width="140"
+             height="209">
+
+      </div>
+      <div class="col-md-9">
+        <dl class="row">
+          <dt class="col-sm-3">Release date:</dt>
+          <dd class="col-sm-9">{{movieCtrl.movie.yearOfRelease}}</dd>
+
+          <dt class="col-sm-3">Genres:</dt>
+          <dd class="col-sm-9">
+            <span ng-repeat="genre in movieCtrl.movie.genres">{{genre.name}} </span>
+          </dd>
+
+          <dt class="col-sm-3">Countries:</dt>
+          <dd class="col-sm-9">
+            <span ng-repeat="country in movieCtrl.movie.countries">{{country.name}} </span>
+          </dd>
+
+          <dt class="col-sm-3">Rating:</dt>
+          <dd class="col-sm-9">
+            {{movieCtrl.movie.rating}}
+          </dd>
+
+          <dt class="col-sm-3">Price:</dt>
+          <dd class="col-sm-9">
+            {{movieCtrl.movie.price}}
+          </dd>
+
+          <dt class="col-sm-3">Description:</dt>
+          <dd class="col-sm-9">{{movieCtrl.movie.description }}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="btn btn-warning mr-2" ng-click="movieCtrl.editModeOn()">Edit</button>
+      <button type="button" class="btn btn-danger">Remove</button>
+    </div>
+  </div>
+
+  <div class="movie-edit" ng-if="movieCtrl.editMode">
     <h3 class="title-text text-center">
-      {{movieCtrl.movie.nameRussian}}
-      <small class="text-muted">{{movieCtrl.movie.nameNative}}</small>
+      Edit mode
     </h3>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <img class="rounded mx-auto d-block" ng-src="{{movieCtrl.movie.picturePath}}"
-           alt="{{movieCtrl.movie.nameRussian}}" width="140"
-           height="209">
-    </div>
-    <div class="col-md-9">
-      <dl class="row">
-        <dt class="col-sm-3">Release date:</dt>
-        <dd class="col-sm-9">{{movieCtrl.movie.yearOfRelease}}</dd>
+    <form id="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <p class="text-center">Image preview</p>
+          <img class="rounded mx-auto d-block" ng-src="{{movieCtrl.editMovie.picturePath}}" width="140"
+               height="209">
+        </div>
 
-        <dt class="col-sm-3">Genres:</dt>
-        <dd class="col-sm-9">
-          <span ng-repeat="genre in movieCtrl.movie.genres">{{genre.name}} </span>
-        </dd>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label for="nameRussianInput">Name russian</label>
+              <input type="text" class="form-control" id="nameRussianInput" ng-model="movieCtrl.editMovie.nameRussian"
+                     required>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="nameNativeInput">Name native</label>
+              <input type="text" class="form-control" id="nameNativeInput" ng-model="movieCtrl.editMovie.nameNative"
+                     required>
+            </div>
+          </div>
 
-        <dt class="col-sm-3">Countries:</dt>
-        <dd class="col-sm-9">
-          <span ng-repeat="country in movieCtrl.movie.countries">{{country.name}} </span>
-        </dd>
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label for="yearOfReleaseInput">Year</label>
+              <input type="text" class="form-control" id="yearOfReleaseInput"
+                     ng-model="movieCtrl.editMovie.yearOfRelease" required>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="priceInput">Price</label>
+              <input type="text" class="form-control" id="priceInput" ng-model="movieCtrl.editMovie.price" required>
+            </div>
+          </div>
 
-        <dt class="col-sm-3">Rating:</dt>
-        <dd class="col-sm-9">
-          {{movieCtrl.movie.rating}}
-        </dd>
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <div class="form-group">
+                <label for="genresSelect">Genres</label>
+                <select multiple class="form-control" id="genresSelect">
+                  <option data-id="{{genre.id}}" ng-repeat="genre in movieCtrl.availableGenres"
+                          ng-selected="movieCtrl.isCheckedGenre(genre.id)">{{genre.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 mb-2">
+              <div class="form-group">
+                <label for="countriesSelect">Countries</label>
+                <select multiple class="form-control" id="countriesSelect">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-        <dt class="col-sm-3">Price:</dt>
-        <dd class="col-sm-9">
-          {{movieCtrl.movie.price}}
-        </dd>
 
-        <dt class="col-sm-3">Description:</dt>
-        <dd class="col-sm-9">{{movieCtrl.movie.description }}</dd>
-      </dl>
-    </div>
-  </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="picturePathInput">Picture</label>
+              <input type="text" class="form-control" id="picturePathInput" ng-model="movieCtrl.editMovie.picturePath"
+                     required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <textarea id="descriptionInput" class="form-control" rows="7"
+                        ng-model="movieCtrl.editMovie.description"></textarea>
+            </div>
+          </div>
+          <div class="edit-controls">
+            <button class="btn btn-success mr-2" type="submit">Save</button>
+            <button class="btn btn-info" type="submit" ng-click="movieCtrl.editModeOff()">Cancel</button>
+          </div>
+        </div>
+      </div>
 
-  <div class="controls">
-    <button type="button" class="btn btn-warning">Edit</button>
-    <button type="button" class="btn btn-danger">Remove</button>
+      <!--<div class="col-md-8 mb-3 h-100">-->
+      <!--<textarea class="form-control" id="picturePathInput" ng-model="movieCtrl.editMovie.picturePath"-->
+      <!--required></textarea>-->
+      <!--</div>-->
+
+
+    </form>
   </div>
 
   <div class="title-wrapper review-header">
@@ -69,7 +165,14 @@
             <button type="button" class="btn btn-outline-danger  float-right">Remove</button>
           </div>
         </div>
-
+      </div>
+    </div>
+    <div class="card review">
+      <div class="card-body">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" ng-model="movieCtrl.newReview"></textarea>
+        </div>
+        <button type="button" class="btn btn-outline-success  float-right">Submit</button>
       </div>
     </div>
   </div>

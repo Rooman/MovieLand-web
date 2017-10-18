@@ -81,6 +81,14 @@ body {
 .movie {
   padding-top: 20px; }
 
+.movie-edit h3 {
+  margin-top: 15px;
+  font-size: 24px;
+  margin-bottom: 20px; }
+
+.edit-controls {
+  text-align: right; }
+
 .title-wrapper {
   margin-bottom: 20px; }
 
@@ -92,6 +100,9 @@ body {
   font-size: 15px; }
 
 .movie dd {
+  font-size: 13px; }
+
+.movie-edit input, .movie-edit textarea {
   font-size: 13px; }
 
 .controls {
@@ -111,3 +122,9 @@ body {
 
 .review p {
   font-size: 13px; }
+
+.login {
+  margin-top: 30px; }
+
+.login-nav {
+  margin-left: 25px; }

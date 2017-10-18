@@ -2,6 +2,16 @@
   padding-top: 20px;
 }
 
+.movie-edit h3 {
+  margin-top: 15px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.edit-controls {
+  text-align: right;
+}
+
 .title-wrapper {
   margin-bottom: 20px;
 }
@@ -17,6 +27,12 @@
 
 .movie dd {
   font-size: 13px;
+}
+
+.movie-edit {
+  input, textarea {
+    font-size: 13px;
+  }
 }
 
 .controls {

@@ -7,7 +7,8 @@
     'common',
     'movieList',
     'movieCarousel',
-    'movie'
+    'movie',
+    'login'
   ])
   ;
 

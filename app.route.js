@@ -25,6 +25,11 @@
             return CommonService.getMovieById($stateParams.id);
           }]
         }
+      })
+
+      .state('login', {
+        url: '/login',
+        template: '<login></login>'
       });
     //
     //     // .state('moviesByGenre', {
