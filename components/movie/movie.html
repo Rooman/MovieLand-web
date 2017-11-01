@@ -103,11 +103,8 @@
               <div class="form-group">
                 <label for="countriesSelect">Countries</label>
                 <select multiple class="form-control" id="countriesSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option data-id="{{country.id}}" ng-repeat="country in movieCtrl.availableCountries"
+                          ng-selected="movieCtrl.isCheckedCountry(country.id)">{{country.name}}
                 </select>
               </div>
             </div>

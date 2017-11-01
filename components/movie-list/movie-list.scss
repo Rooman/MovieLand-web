@@ -1,10 +1,13 @@
 .movie-list {
   margin-top: 10px;
+  select {
+    padding-top: 4px;
+    font-size: 16px;
+  }
 }
 
 .genre-filter {
   margin-top: 27px;
-  margin-bottom: 40px;
 }
 
 .genre-filter-link {
@@ -31,8 +34,10 @@
 .movie-album .card {
   float: left;
   width: 25%;
-  padding: .75rem;
+  padding: 1.35rem .75rem;
+
   border: 0;
+
   a {
     color: #868e96;
   }
@@ -52,6 +57,10 @@
     margin-bottom: 0;
   }
 
+  .movie-card {
+    margin-bottom: 10px;
+  }
+
   .card-body {
     text-align: center;
     padding-top: 7px;
@@ -59,4 +68,20 @@
   }
 
 }
+
+.movie-album__price,
+.movie-album__raiting {
+  font-size: 14px;
+}
+
+.movie-album__price {
+  color: #28a745;
+}
+
+.movie-album__raiting {
+  color: #ffc107;
+}
+
+
+
 

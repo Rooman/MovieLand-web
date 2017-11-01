@@ -4,10 +4,12 @@ body {
 
 .movie-list {
   margin-top: 10px; }
+  .movie-list select {
+    padding-top: 4px;
+    font-size: 16px; }
 
 .genre-filter {
-  margin-top: 27px;
-  margin-bottom: 40px; }
+  margin-top: 27px; }
 
 .genre-filter-link {
   font-size: 14px;
@@ -30,7 +32,7 @@ body {
 .movie-album .card {
   float: left;
   width: 25%;
-  padding: .75rem;
+  padding: 1.35rem .75rem;
   border: 0; }
   .movie-album .card a {
     color: #868e96; }
@@ -43,10 +45,22 @@ body {
     text-align: center;
     font-size: 1rem;
     margin-bottom: 0; }
+  .movie-album .card .movie-card {
+    margin-bottom: 10px; }
   .movie-album .card .card-body {
     text-align: center;
     padding-top: 7px;
     padding-bottom: 5px; }
+
+.movie-album__price,
+.movie-album__raiting {
+  font-size: 14px; }
+
+.movie-album__price {
+  color: #28a745; }
+
+.movie-album__raiting {
+  color: #ffc107; }
 
 .movie-carousel {
   margin-top: 15px; }
@@ -102,7 +116,7 @@ body {
 .movie dd {
   font-size: 13px; }
 
-.movie-edit input, .movie-edit textarea {
+.movie-edit input, .movie-edit textarea, .movie-edit option {
   font-size: 13px; }
 
 .controls {

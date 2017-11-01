@@ -17,7 +17,6 @@
         password: ctrl.password
       };
       $rootScope.isLogged = true;
-      console.log($state);
       $state.go("home");
       // LoginService.login(user).then(function (response) {
       //   console.log("Login successful");
