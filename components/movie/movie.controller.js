@@ -9,6 +9,30 @@
   function MovieController(movie, CommonService) {
     var ctrl = this;
     ctrl.movie = movie.data;
+    ctrl.currencySign = '₴';
+    ctrl.selectedCurrency = "UAH";
+
+    ctrl.updateCurrency = function () {
+      var selectedCurrency = ctrl.selectedCurrency;
+      if (selectedCurrency === "UAH") {
+        CommonService.getMovieById(ctrl.movie.id).then(function (response) {
+          console.log("movie response data", response.data);
+          ctrl.movie = response.data
+          ctrl.currencySign = '₴';
+        }, errorCallback);
+
+      } else {
+        CommonService.getMovieWithCurrency(ctrl.movie.id, selectedCurrency).then(function (response) {
+          console.log("movie response data", response.data);
+          ctrl.movie = response.data;
+          if (selectedCurrency === "USD") {
+            ctrl.currencySign = '$';
+          } else {
+            ctrl.currencySign = '€';
+          }
+        }, errorCallback);
+      }
+    };
 
 
     ctrl.editModeOn = function () {
@@ -49,7 +73,6 @@
       }
       return false;
     };
-
 
 
     CommonService.getGenres().then(function (response) {

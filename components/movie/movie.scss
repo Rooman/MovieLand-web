@@ -14,6 +14,7 @@
 
 .title-wrapper {
   margin-bottom: 20px;
+  position: relative;
 }
 
 .movie .title-text {
@@ -65,4 +66,15 @@
 
 .review p {
   font-size: 13px;
+}
+
+.currency_for_movie {
+  width: 100px;
+  position: absolute;
+  top: -8px;
+  right: 0;
+
+  select {
+    padding-top: 4px;
+  }
 }

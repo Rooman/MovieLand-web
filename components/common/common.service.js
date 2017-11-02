@@ -8,6 +8,14 @@
   function CommonService($http) {
     var service = this;
 
+    service.getMovieWithCurrency = function (movieId, currency) {
+      return $http({
+        method: "GET",
+        url: ("http://localhost:8080/v1/movie/" + movieId),
+        params: {currency: currency}
+      });
+    };
+
     service.getMovies = function () {
       return $http({
         method: "GET",
