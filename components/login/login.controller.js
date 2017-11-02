@@ -8,31 +8,29 @@
   function LoginController(LoginService, $rootScope, $state) {
     var ctrl = this;
 
-    $rootScope.isLogged = true;
+    ctrl.user = {};
 
     ctrl.login = function () {
       console.log("Logging...");
-      var user = {
-        email: ctrl.email,
-        password: ctrl.password
-      };
-      $rootScope.isLogged = true;
-      $state.go("home");
-      // LoginService.login(user).then(function (response) {
-      //   console.log("Login successful");
-      //
-      // }, errorCallback);
+
+
+      LoginService.login(ctrl.user).then(function (response) {
+        console.log("Login successful", response.data);
+        $rootScope.isLogged = true;
+        $rootScope.user = response.data;
+        $state.go("home");
+      }, errorCallback);
     };
 
     ctrl.logout = function () {
       $rootScope.isLogged = false;
+      $rootScope.user = null;
+    };
+    function errorCallback(response) {
+      console.log("error response:", response);
+      ctrl.errorMessage = "Status code: " + response.status + ", response: " + response.data;
     }
   }
 
-
-  function errorCallback(response) {
-    console.log("error response:", response);
-    ctrl.errorMessage = response.data;
-  }
 
 })();

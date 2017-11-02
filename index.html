@@ -42,7 +42,7 @@
 
       <!-- Search -->
       <form class="form-inline my-lg-0 ">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" style="width: 350px" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
 
@@ -51,8 +51,9 @@
         <li class="nav-item" ng-hide="isLogged">
           <a ui-sref="login" class="btn btn-outline-warning">Login</a>
         </li>
-        <li class="nav-item" ng-show="isLogged">
-          <a href="" class="btn btn-outline-info">Logout</a>
+        <li class="nav-item" ng-show="isLogged" ng-controller="LoginController as loginCtrl"
+            ng-click="loginCtrl.logout()">
+          <a ui-sref="home" class="btn btn-outline-info">Logout</a>
         </li>
       </ul>
 
