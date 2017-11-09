@@ -5,8 +5,8 @@
     .controller('MovieController', MovieController)
   ;
 
-  MovieController.$inject = ['movie', 'CommonService'];
-  function MovieController(movie, CommonService) {
+  MovieController.$inject = ['movie', 'CommonService', '$rootScope'];
+  function MovieController(movie, CommonService, $rootScope) {
     var ctrl = this;
     ctrl.movie = movie.data;
     ctrl.currencySign = '₴';
@@ -108,6 +108,28 @@
 
     ctrl.editModeOff = function () {
       ctrl.editMode = false;
+    };
+
+    ctrl.addReview = function () {
+      var review = {
+        text: ctrl.newReview,
+        movieId: ctrl.movie.id
+      };
+
+      CommonService.addReview(review).then(function (response) {
+        ctrl.newReview = "";
+        review["user"] = $rootScope.user;
+        console.log("review", review);
+        ctrl.movie.reviews.push(response.data);
+      }, errorCallback);
+
+    };
+
+    ctrl.removeReview = function (reviewId) {
+      CommonService.removeReview(reviewId).then(function (response) {
+        console.log("removing review with response: ", response.data);
+      }, errorCallback);
+
     };
   }
 

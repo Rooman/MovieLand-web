@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="controls" ng-show="user">
+    <div class="controls" ng-show="user.userRole === 'admin'">
       <button type="button" class="btn btn-warning mr-2" ng-click="movieCtrl.editModeOn()">Edit</button>
       <button type="button" class="btn btn-danger">Remove</button>
     </div>
@@ -167,18 +167,18 @@
               </cite> {{review.user.nickname}}
             </footer>
           </div>
-          <div class="col-md-4">
-            <button type="button" class="btn btn-outline-danger  float-right">Remove</button>
+          <div class="col-md-4" ng-show="review.user.nickname == user.nickname || user.userRole === 'admin'">
+            <button type="button" class="btn btn-outline-danger  float-right" ng-click="movieCtrl.removeReview(review.id)">Remove</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="card review">
+    <div class="card review" ng-show="user">
       <div class="card-body">
         <div class="form-group">
           <textarea class="form-control" rows="3" ng-model="movieCtrl.newReview"></textarea>
         </div>
-        <button type="button" class="btn btn-outline-success  float-right">Submit</button>
+        <button type="button" class="btn btn-outline-success  float-right" ng-click="movieCtrl.addReview();">Submit</button>
       </div>
     </div>
   </div>

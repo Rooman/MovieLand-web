@@ -4,8 +4,8 @@
   angular.module('common')
     .service('CommonService', CommonService);
 
-  CommonService.$inject = ['$http'];
-  function CommonService($http) {
+  CommonService.$inject = ['$http', '$rootScope'];
+  function CommonService($http, $rootScope) {
     var service = this;
 
     service.getMovieWithCurrency = function (movieId, currency) {
@@ -47,7 +47,7 @@
       } else if (sortType === "priceDesc") {
         params = {"price": "desc"}
       } else {
-        params = {"raiting": "desc"}
+        params = {"rating": "desc"}
       }
       return params;
     }
@@ -87,7 +87,30 @@
         url: ("http://localhost:8080/v1/country")
       });
     };
+
+
+    service.addReview = function (review) {
+      return $http({
+        method: "POST",
+        url: ("http://localhost:8080/v1/review/"),
+        data: review,
+        headers: {
+          'uuid': $rootScope.user.uuid
+        }
+      });
+    };
+
+    service.removeReview = function (reviewId) {
+      return $http({
+        method: "DELETE",
+        url: ("http://localhost:8080/v1/review/" + reviewId),
+        headers: {
+          'uuid': $rootScope.user.uuid
+        }
+      });
+    };
   }
+
 
 })();
 
