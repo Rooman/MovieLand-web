@@ -37,14 +37,33 @@
             <span ng-repeat="country in movieCtrl.movie.countries">{{country.name}} </span>
           </dd>
 
-          <dt class="col-sm-3">Rating:</dt>
-          <dd class="col-sm-9">
-            {{movieCtrl.movie.rating}}
-          </dd>
+          <div class="col-md-12">
+            <div class="row">
+              <dt class="col-md-3 mt-1">Rating:</dt>
+              <dd class="col-md-5 mt-1">
+                {{movieCtrl.movie.rating}} ({{movieCtrl.userRating}})
+              </dd>
+              <div class="col-md-2 align-self-center" ng-show="user">
+                <select ng-model="movieCtrl.selected" class="form-control" id="rateSelect">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+              </div>
+              <div ng-show="user" class="btn btn-primary col-md-1 rate-button" ng-click="movieCtrl.rate()">Rate!</div>
+            </div>
+          </div>
 
           <dt class="col-sm-3">Price:</dt>
           <dd class="col-sm-9">
-             {{movieCtrl.movie.price}} {{movieCtrl.currencySign}}
+            {{movieCtrl.movie.price}} {{movieCtrl.currencySign}}
           </dd>
 
           <dt class="col-sm-3">Description:</dt>
@@ -139,13 +158,6 @@
           </div>
         </div>
       </div>
-
-      <!--<div class="col-md-8 mb-3 h-100">-->
-      <!--<textarea class="form-control" id="picturePathInput" ng-model="movieCtrl.editMovie.picturePath"-->
-      <!--required></textarea>-->
-      <!--</div>-->
-
-
     </form>
   </div>
 
@@ -168,7 +180,9 @@
             </footer>
           </div>
           <div class="col-md-4" ng-show="review.user.nickname == user.nickname || user.userRole === 'admin'">
-            <button type="button" class="btn btn-outline-danger  float-right" ng-click="movieCtrl.removeReview(review.id)">Remove</button>
+            <button type="button" class="btn btn-outline-danger  float-right"
+                    ng-click="movieCtrl.removeReview(review.id)">Remove
+            </button>
           </div>
         </div>
       </div>
@@ -178,7 +192,8 @@
         <div class="form-group">
           <textarea class="form-control" rows="3" ng-model="movieCtrl.newReview"></textarea>
         </div>
-        <button type="button" class="btn btn-outline-success  float-right" ng-click="movieCtrl.addReview();">Submit</button>
+        <button type="button" class="btn btn-outline-success  float-right" ng-click="movieCtrl.addReview();">Submit
+        </button>
       </div>
     </div>
   </div>

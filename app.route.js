@@ -23,6 +23,9 @@
         resolve: {
           movie: ['$stateParams', 'CommonService', function ($stateParams, CommonService) {
             return CommonService.getMovieById($stateParams.id);
+          }],
+          userRating: ['$stateParams','CommonService', function ($stateParams, CommonService) {
+            return CommonService.getOwnMovieRating($stateParams.id);
           }]
         }
       })

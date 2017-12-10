@@ -4,8 +4,8 @@
   angular.module('common')
     .service('CommonService', CommonService);
 
-  CommonService.$inject = ['$http', '$rootScope'];
-  function CommonService($http, $rootScope) {
+  CommonService.$inject = ['$http', '$rootScope', '$q'];
+  function CommonService($http, $rootScope, $q) {
     var service = this;
 
     service.getMovieWithCurrency = function (movieId, currency) {
@@ -109,6 +109,34 @@
         }
       });
     };
+
+    service.getOwnMovieRating = function (movieId) {
+      if ($rootScope.user === undefined) {
+        return $q.when({"data": ""});
+      }
+      return $http({
+        method: "GET",
+        url: ("http://localhost:8080/v1/movie/" + movieId + "/rating"),
+        headers: {
+          'uuid': $rootScope.user.uuid
+        }
+      });
+    }
+
+
+    service.rateMovie = function (movieId, rating) {
+      return $http({
+        method: "POST",
+        url: ("http://localhost:8080/v1/movie/" + movieId + "/rate"),
+        headers: {
+          'uuid': $rootScope.user.uuid
+        },
+        data: {
+          "rating" : rating
+        }
+      });
+    }
+
   }
 
 

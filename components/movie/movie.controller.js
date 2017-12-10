@@ -5,12 +5,22 @@
     .controller('MovieController', MovieController)
   ;
 
-  MovieController.$inject = ['movie', 'CommonService', '$rootScope'];
-  function MovieController(movie, CommonService, $rootScope) {
+  MovieController.$inject = ['movie', 'CommonService', '$rootScope', 'userRating'];
+  function MovieController(movie, CommonService, $rootScope, userRating) {
     var ctrl = this;
     ctrl.movie = movie.data;
     ctrl.currencySign = '₴';
     ctrl.selectedCurrency = "UAH";
+    console.log("userRating", userRating);
+
+    if ($rootScope.user === undefined) {
+      ctrl.userRating = "login to vote";
+    } else if (userRating.data === "") {
+      ctrl.userRating = "not voted yet";
+    } else {
+      ctrl.userRating = userRating.data;
+    }
+
 
     ctrl.updateCurrency = function () {
       var selectedCurrency = ctrl.selectedCurrency;
@@ -102,6 +112,14 @@
       return copy;
     }
 
+    ctrl.rate = function () {
+      if (ctrl.selected !== undefined) {
+        CommonService.rateMovie(ctrl.movie.id, ctrl.selected).then(function (response) {
+          ctrl.userRating = ctrl.selected;
+        }, errorCallback);
+      }
+    };
+
     ctrl.saveEditChanges = function () {
       ctrl.editModeOff();
     };
@@ -128,6 +146,14 @@
     ctrl.removeReview = function (reviewId) {
       CommonService.removeReview(reviewId).then(function (response) {
         console.log("removing review with response: ", response.data);
+        var myArray = ctrl.movie.reviews;
+        for (var i = myArray.length - 1; i >= 0; --i) {
+          if (myArray[i].id === reviewId) {
+            myArray.splice(i, 1);
+            console.log(myArray);
+            break;
+          }
+        }
       }, errorCallback);
 
     };
