@@ -9,6 +9,7 @@
   function MovieController(movie, CommonService, $rootScope, userRating) {
     var ctrl = this;
     ctrl.movie = movie.data;
+    console.log("movie", ctrl.movie);
     ctrl.currencySign = '₴';
     ctrl.selectedCurrency = "UAH";
     console.log("userRating", userRating);
@@ -58,32 +59,8 @@
         "picturePath": movieToEdit.picturePath,
         "countries": copyInnerArray(movieToEdit.countries),
         "genres": copyInnerArray(movieToEdit.genres)
-      }
-
+      };
     };
-
-    ctrl.isCheckedGenre = function (genreId) {
-      var genres = ctrl.editMovie.genres;
-      for (var i = 0; i < genres.length; i++) {
-        var genre = genres[i];
-        if (genre.id == genreId) {
-          return true;
-        }
-      }
-      return false;
-    };
-
-    ctrl.isCheckedCountry = function (countryId) {
-      var countries = ctrl.editMovie.countries;
-      for (var i = 0; i < countries.length; i++) {
-        var country = countries[i];
-        if (country.id == countryId) {
-          return true;
-        }
-      }
-      return false;
-    };
-
 
     CommonService.getGenres().then(function (response) {
       console.log("genre list response data", response.data);
@@ -104,10 +81,9 @@
       var copy = [];
       for (var i = 0; i < arrayToCopy.length; i++) {
         var item = arrayToCopy[i];
-        copy.push({
-          id: item.id,
-          name: item.name
-        })
+        copy.push(
+          "" + item.id
+        )
       }
       return copy;
     }
@@ -122,6 +98,40 @@
 
     ctrl.saveEditChanges = function () {
       ctrl.editModeOff();
+      console.log("old movie", ctrl.movie);
+      console.log("new movie", ctrl.editMovie);
+      var mergedMovie = {};
+      if (ctrl.movie.nameRussian !== ctrl.editMovie.nameRussian) {
+        mergedMovie.nameRussian = ctrl.editMovie.nameRussian;
+      }
+      if (ctrl.movie.nameNative !== ctrl.editMovie.nameNative) {
+        mergedMovie.nameNative = ctrl.editMovie.nameNative;
+      }
+      if (ctrl.movie.yearOfRelease !== ctrl.editMovie.yearOfRelease) {
+        mergedMovie.yearOfRelease = ctrl.editMovie.yearOfRelease;
+      }
+      if (ctrl.movie.description !== ctrl.editMovie.description) {
+        mergedMovie.description = ctrl.editMovie.description;
+      }
+      if (ctrl.movie.price !== ctrl.editMovie.price) {
+        mergedMovie.price = ctrl.editMovie.price;
+      }
+      if (ctrl.movie.picturePath !== ctrl.editMovie.picturePath) {
+        mergedMovie.picturePath = ctrl.editMovie.picturePath;
+      }
+      mergedMovie.countries = ctrl.editMovie.countries;
+      mergedMovie.genres = ctrl.editMovie.genres;
+
+      console.log("merged movie", mergedMovie);
+
+      CommonService.updateMovie(ctrl.movie.id, mergedMovie).then(function (response) {
+        ctrl.editModeOff();
+        alert("movie edited!");
+        ctrl.updateCurrency();
+      }, function (error) {
+        console.log(error);
+        alert("Error");
+      });
     };
 
     ctrl.editModeOff = function () {

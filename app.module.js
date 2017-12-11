@@ -8,7 +8,9 @@
     'movieList',
     'movieCarousel',
     'movie',
-    'login'
+    'login',
+    'importExport',
+    'addMovie'
   ])
   ;
 

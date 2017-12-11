@@ -1,0 +1,40 @@
+<h3 class="text-center mt-3">Import or Export your movies</h3>
+<div class="row mt-3">
+  <div class="col-9">
+    <div class="form-group">
+      <p>Input & Output:</p>
+      <textarea ng-model="ctrl.data" class="form-control" rows="25"></textarea>
+    </div>
+  </div>
+  <div class="col-3">
+    <p>Configuration:</p>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <fieldset class="form-group">
+            <legend class="text-center">Format</legend>
+            <div class="row mt-2">
+              <div class="form-check col-6 text-center">
+                <label class="form-check-label ml-2">
+                  <input type="radio" class="form-check-input" name="format" value="xml"
+                         checked>
+                  XML
+                </label>
+              </div>
+              <div class="form-check col-6">
+                <label class="form-check-label ml-2">
+                  <input type="radio" class="form-check-input" name="format" value="json">
+                  JSON
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="text-center">
+            <button class="btn btn-primary">IMPORT</button>
+            <button class="btn btn-success">EXPORT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

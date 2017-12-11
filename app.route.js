@@ -24,7 +24,7 @@
           movie: ['$stateParams', 'CommonService', function ($stateParams, CommonService) {
             return CommonService.getMovieById($stateParams.id);
           }],
-          userRating: ['$stateParams','CommonService', function ($stateParams, CommonService) {
+          userRating: ['$stateParams', 'CommonService', function ($stateParams, CommonService) {
             return CommonService.getOwnMovieRating($stateParams.id);
           }]
         }
@@ -33,21 +33,21 @@
       .state('login', {
         url: '/login',
         template: '<login></login>'
-      });
-    //
-    //     // .state('moviesByGenre', {
-    //     //   url: '/movies?genre=:genreId',
-    //     //   template: '<movie-list></movie-list>'
-    //     // })
-    //     //
+      })
 
-    //     //
-    //     // .state('review', {
-    //     //   url: '/review?review=:reviewId',
-    //     //   template: '<review reviews="ctrl.movie.reviews"></review>'
-    //     // })
-    //   ;
-    //
+      .state('importExport', {
+        url: '/importExport',
+        controller: 'ImportExportController',
+        controllerAs: 'ctrl',
+        templateUrl: '/components/import-export/import-export.html'
+      })
+
+      .state('addMovie', {
+        url: '/addMovie',
+        controller: 'AddMovieController',
+        controllerAs: 'ctrl',
+        templateUrl: '/components/add-movie/add-movie.html'
+      });
   }
 
 })();

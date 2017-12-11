@@ -72,6 +72,7 @@
       </div>
     </div>
 
+
     <div class="controls" ng-show="user.userRole === 'admin'">
       <button type="button" class="btn btn-warning mr-2" ng-click="movieCtrl.editModeOn()">Edit</button>
       <button type="button" class="btn btn-danger">Remove</button>
@@ -120,9 +121,9 @@
             <div class="col-md-6 mb-2">
               <div class="form-group">
                 <label for="genresSelect">Genres</label>
-                <select multiple class="form-control" id="genresSelect">
-                  <option data-id="{{genre.id}}" ng-repeat="genre in movieCtrl.availableGenres"
-                          ng-selected="movieCtrl.isCheckedGenre(genre.id)">{{genre.name}}
+                <select multiple class="form-control" id="genresSelect" ng-model="movieCtrl.editMovie.genres">
+                  <option data-id="{{genre.id}}" value="{{genre.id}}"
+                          ng-repeat="genre in movieCtrl.availableGenres">{{genre.name}}
                   </option>
                 </select>
               </div>
@@ -130,9 +131,9 @@
             <div class="col-md-6 mb-2">
               <div class="form-group">
                 <label for="countriesSelect">Countries</label>
-                <select multiple class="form-control" id="countriesSelect">
-                  <option data-id="{{country.id}}" ng-repeat="country in movieCtrl.availableCountries"
-                          ng-selected="movieCtrl.isCheckedCountry(country.id)">{{country.name}}
+                <select multiple class="form-control" id="countriesSelect" ng-model="movieCtrl.editMovie.countries">
+                  <option data-id="{{country.id}}" value="{{country.id}}"
+                          ng-repeat="country in movieCtrl.availableCountries">{{country.name}}
                 </select>
               </div>
             </div>
@@ -153,7 +154,7 @@
             </div>
           </div>
           <div class="edit-controls">
-            <button class="btn btn-success mr-2" type="submit">Save</button>
+            <button class="btn btn-success mr-2" type="submit" ng-click="movieCtrl.saveEditChanges()">Save</button>
             <button class="btn btn-info" type="submit" ng-click="movieCtrl.editModeOff()">Cancel</button>
           </div>
         </div>

@@ -44,16 +44,18 @@
   }
 }
 
+.edit-controls {
+  button:hover {
+    cursor: pointer;
+  }
+}
+
 .review-header {
   margin-top: 30px;
 }
 
 .review {
   margin-bottom: 10px;
-
-  //.card-body {
-  //  padding-bottom: 10px;
-  //}
 
   blockquote {
     margin: 0;

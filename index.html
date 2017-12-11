@@ -7,8 +7,8 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -25,12 +25,12 @@
 
     <!-- Navs links -->
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto" ng-show="user.userRole === 'admin'">
         <li class="nav-item">
-          <a class="nav-link" href="#">Import\Export</a>
+          <a class="nav-link" ui-sref="importExport">Import\Export</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add movie</a>
+          <a class="nav-link" ui-sref="addMovie">Add movie</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Steal!</a>
@@ -41,7 +41,7 @@
       </ul>
 
       <!-- Search -->
-      <form class="form-inline my-lg-0 ">
+      <form class="form-inline my-lg-0 ml-auto">
         <input class="form-control mr-sm-2" style="width: 350px" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
@@ -110,6 +110,13 @@
 <script src="components/login/login.component.js"></script>
 <script src="components/login/login.controller.js"></script>
 
+<!-- Import\Export -->
+<script src="components/import-export/import-export.module.js"></script>
+<script src="components/import-export/import-export.controller.js"></script>
+
+<!-- Add movie -->
+<script src="components/add-movie/add-movie.module.js"></script>
+<script src="components/add-movie/add-movie.controller.js"></script>
 
 </body>
 </html>

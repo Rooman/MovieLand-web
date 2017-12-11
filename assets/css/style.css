@@ -125,6 +125,9 @@ body {
   .controls button:hover {
     cursor: pointer; }
 
+.edit-controls button:hover {
+  cursor: pointer; }
+
 .review-header {
   margin-top: 30px; }
 
@@ -162,3 +165,6 @@ body {
 
 .login-nav {
   margin-left: 25px; }
+
+.movie-edit input, .movie-edit textarea, .movie-edit option {
+  font-size: 13px; }

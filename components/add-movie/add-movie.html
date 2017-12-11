@@ -1,0 +1,80 @@
+<h3 class="text-center mt-3">Add movie</h3>
+<div class="movie-edit mt-4" ng-if="ctrl.movie" >
+  <form name="add-form" id="needs-validation" ng-submit="ctrl.addMovie()">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <p class="text-center">Image preview</p>
+        <img class="rounded mx-auto d-block" ng-src="{{ctrl.movie.picturePath}}" width="140"
+             height="209">
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="nameRussianInput">Name russian</label>
+            <input type="text" class="form-control" id="nameRussianInput" ng-model="ctrl.movie.nameRussian"
+                   required>
+          </div>
+          <div class="col-md-6 mb-2">
+            <label for="nameNativeInput">Name native</label>
+            <input type="text" class="form-control" id="nameNativeInput" ng-model="ctrl.movie.nameNative"
+                   required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <label for="yearOfReleaseInput">Year</label>
+            <input type="text" class="form-control" id="yearOfReleaseInput"
+                   ng-model="ctrl.movie.yearOfRelease" required>
+          </div>
+          <div class="col-md-6 mb-2">
+            <label for="priceInput">Price</label>
+            <input type="text" class="form-control" id="priceInput" ng-model="ctrl.movie.price" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label for="genresSelect">Genres</label>
+              <select multiple class="form-control" id="genresSelect" ng-model="ctrl.movie.genres">
+                <option value="{{genre.id}}" ng-repeat="genre in ctrl.availableGenres">{{genre.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label for="countriesSelect">Countries</label>
+              <select multiple class="form-control" id="countriesSelect" ng-model="ctrl.movie.countries">
+                <option value="{{country.id}}" ng-repeat="country in ctrl.availableCountries">{{country.name}}
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <label for="picturePathInput">Picture</label>
+            <input type="text" class="form-control" id="picturePathInput" ng-model="ctrl.movie.picturePath"
+                   required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <label for="descriptionInput">Description</label>
+            <textarea id="descriptionInput" class="form-control" rows="7"
+                      ng-model="ctrl.movie.description" ng-required="true" ></textarea>
+          </div>
+        </div>
+        <div class="edit-controls ">
+          <button type="submit" class="btn btn-success mt-2 mr-0 w-25">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

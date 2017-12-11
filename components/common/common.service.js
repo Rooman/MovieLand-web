@@ -132,11 +132,33 @@
           'uuid': $rootScope.user.uuid
         },
         data: {
-          "rating" : rating
+          "rating": rating
         }
       });
-    }
+    };
 
+    service.addMovie = function (movie) {
+      // JSON.stringify
+      return $http({
+        method: "POST",
+        url: ("http://localhost:8080/v1/movie/"),
+        headers: {
+          'uuid': $rootScope.user.uuid
+        },
+        data: movie
+      });
+    };
+
+    service.updateMovie = function (movieId, movie) {
+      return $http({
+        method: "PUT",
+        url: ("http://localhost:8080/v1/movie/" + movieId),
+        headers: {
+          'uuid': $rootScope.user.uuid
+        },
+        data: movie
+      });
+    }
   }
 
 
