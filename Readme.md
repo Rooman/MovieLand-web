@@ -21,6 +21,12 @@ Open command line and run:
 npm
 ```
 
+#### On windows
+Install additional dependencies:
+
+```
+npm install --global --production windows-build-tools
+```
 
 ### Installing
 1) Open console and move to the project's root
